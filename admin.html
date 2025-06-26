@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin Panel - Lucky Singh Yaduvanshi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="font-poppins bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-primary">Portfolio Admin Panel</h1>
+                <div class="flex space-x-4">
+                    <a href="index_new.html" class="btn btn-secondary">
+                        <i class="fas fa-eye mr-2"></i> View Portfolio
+                    </a>
+                    <button onclick="exportData()" class="btn btn-primary">
+                        <i class="fas fa-download mr-2"></i> Export Data
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex space-x-8">
+                <button onclick="showSection('certifications')" class="nav-tab active" data-section="certifications">
+                    <i class="fas fa-certificate mr-2"></i> Certifications
+                </button>
+                <button onclick="showSection('tools')" class="nav-tab" data-section="tools">
+                    <i class="fas fa-tools mr-2"></i> Tools
+                </button>
+                <button onclick="showSection('settings')" class="nav-tab" data-section="settings">
+                    <i class="fas fa-cog mr-2"></i> Settings
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Certifications Section -->
+        <section id="certifications-section" class="admin-section">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">Manage Certifications</h2>
+                <button onclick="showAddCertificationModal()" class="btn btn-primary">
+                    <i class="fas fa-plus mr-2"></i> Add Certification
+                </button>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="overflow-x-auto">
+                    <table class="w-full table-auto">
+                        <thead>
+                            <tr class="border-b">
+                                <th class="text-left py-3">Logo</th>
+                                <th class="text-left py-3">Title</th>
+                                <th class="text-left py-3">Issuer</th>
+                                <th class="text-left py-3">Date</th>
+                                <th class="text-left py-3">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="certifications-table-body">
+                            <!-- Dynamic content will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="tools-section" class="admin-section hidden">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">Manage Tools</h2>
+                <button onclick="showAddToolModal()" class="btn btn-primary">
+                    <i class="fas fa-plus mr-2"></i> Add Tool
+                </button>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="overflow-x-auto">
+                    <table class="w-full table-auto">
+                        <thead>
+                            <tr class="border-b">
+                                <th class="text-left py-3">Logo</th>
+                                <th class="text-left py-3">Name</th>
+                                <th class="text-left py-3">Category</th>
+                                <th class="text-left py-3">Proficiency</th>
+                                <th class="text-left py-3">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tools-table-body">
+                            <!-- Dynamic content will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings-section" class="admin-section hidden">
+            <h2 class="text-3xl font-bold mb-8">Settings</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Data Management -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Data Management</h3>
+                    <div class="space-y-4">
+                        <button onclick="exportData()" class="w-full btn btn-primary">
+                            <i class="fas fa-download mr-2"></i> Export All Data
+                        </button>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Import Data</label>
+                            <input type="file" id="import-file" accept=".json" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                            <button onclick="importData()" class="w-full mt-2 btn btn-secondary">
+                                <i class="fas fa-upload mr-2"></i> Import Data
+                            </button>
+                        </div>
+                        <button onclick="resetData()" class="w-full btn bg-red-600 text-white hover:bg-red-700">
+                            <i class="fas fa-trash mr-2"></i> Reset to Default
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Statistics</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span>Total Certifications:</span>
+                            <span id="total-certifications" class="font-bold">0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Total Tools:</span>
+                            <span id="total-tools" class="font-bold">0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Last Updated:</span>
+                            <span id="last-updated" class="font-bold">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add/Edit Certification Modal -->
+    <div id="certification-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl p-8 max-w-md w-full max-h-screen overflow-y-auto">
+                <h3 id="certification-modal-title" class="text-2xl font-bold mb-6">Add New Certification</h3>
+                <form id="certification-form" class="space-y-4">
+                    <input type="hidden" id="certification-index" value="">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Title *</label>
+                        <input type="text" id="cert-title" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Issuer *</label>
+                        <input type="text" id="cert-issuer" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Logo File Name *</label>
+                        <input type="text" id="cert-logo" required placeholder="e.g., microsoft.png" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        <small class="text-gray-500">Place logo files in assets/img/logos/</small>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Date *</label>
+                        <input type="text" id="cert-date" required placeholder="e.g., 2024" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Description *</label>
+                        <textarea id="cert-description" required rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Credential ID</label>
+                        <input type="text" id="cert-credential" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Verification URL</label>
+                        <input type="url" id="cert-verification" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div class="flex space-x-4">
+                        <button type="submit" class="flex-1 btn btn-primary">Save Certification</button>
+                        <button type="button" onclick="hideCertificationModal()" class="flex-1 btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Tool Modal -->
+    <div id="tool-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl p-8 max-w-md w-full">
+                <h3 id="tool-modal-title" class="text-2xl font-bold mb-6">Add New Tool</h3>
+                <form id="tool-form" class="space-y-4">
+                    <input type="hidden" id="tool-index" value="">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Name *</label>
+                        <input type="text" id="tool-name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Logo File Name *</label>
+                        <input type="text" id="tool-logo" required placeholder="e.g., vscode.png" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        <small class="text-gray-500">Place logo files in assets/img/logos/</small>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Category *</label>
+                        <select id="tool-category" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">Select Category</option>
+                            <option value="Development">Development</option>
+                            <option value="Version Control">Version Control</option>
+                            <option value="Analytics">Analytics</option>
+                            <option value="AI Tools">AI Tools</option>
+                            <option value="Cloud">Cloud</option>
+                            <option value="DevOps">DevOps</option>
+                            <option value="CMS">CMS</option>
+                            <option value="Design">Design</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Proficiency (%) *</label>
+                        <input type="number" id="tool-proficiency" required min="0" max="100" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div class="flex space-x-4">
+                        <button type="submit" class="flex-1 btn btn-primary">Save Tool</button>
+                        <button type="button" onclick="hideToolModal()" class="flex-1 btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/portfolio-config.js"></script>
+    <script>
+        // Admin Panel JavaScript
+        let currentEditIndex = -1;
+
+        // Initialize admin panel
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCertificationsTable();
+            loadToolsTable();
+            updateStatistics();
+        });
+
+        // Navigation
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.admin-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(`${sectionName}-section`).classList.remove('hidden');
+            
+            // Add active class to current tab
+            document.querySelector(`[data-section="${sectionName}"]`).classList.add('active');
+        }
+
+        // Load certifications table
+        function loadCertificationsTable() {
+            const tbody = document.getElementById('certifications-table-body');
+            const certifications = portfolioManager.getCertifications();
+            
+            tbody.innerHTML = certifications.map((cert, index) => `
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="py-3">
+                        <img src="assets/img/logos/${cert.logo}" alt="${cert.issuer}" class="w-8 h-8 object-contain">
+                    </td>
+                    <td class="py-3">${cert.title}</td>
+                    <td class="py-3">${cert.issuer}</td>
+                    <td class="py-3">${cert.date}</td>
+                    <td class="py-3">
+                        <div class="flex space-x-2">
+                            <button onclick="editCertification(${index})" class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button onclick="deleteCertification(${index})" class="text-red-600 hover:text-red-800">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Load tools table
+        function loadToolsTable() {
+            const tbody = document.getElementById('tools-table-body');
+            const tools = portfolioManager.getTools();
+            
+            tbody.innerHTML = tools.map((tool, index) => `
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="py-3">
+                        <img src="assets/img/logos/${tool.logo}" alt="${tool.name}" class="w-8 h-8 object-contain">
+                    </td>
+                    <td class="py-3">${tool.name}</td>
+                    <td class="py-3">${tool.category}</td>
+                    <td class="py-3">
+                        <div class="flex items-center">
+                            <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: ${tool.proficiency}%"></div>
+                            </div>
+                            <span class="text-sm">${tool.proficiency}%</span>
+                        </div>
+                    </td>
+                    <td class="py-3">
+                        <div class="flex space-x-2">
+                            <button onclick="editTool(${index})" class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button onclick="deleteTool(${index})" class="text-red-600 hover:text-red-800">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Certification management
+        function showAddCertificationModal() {
+            document.getElementById('certification-modal-title').textContent = 'Add New Certification';
+            document.getElementById('certification-form').reset();
+            document.getElementById('certification-index').value = '';
+            document.getElementById('certification-modal').classList.remove('hidden');
+        }
+
+        function hideCertificationModal() {
+            document.getElementById('certification-modal').classList.add('hidden');
+        }
+
+        function editCertification(index) {
+            const cert = portfolioManager.getCertifications()[index];
+            document.getElementById('certification-modal-title').textContent = 'Edit Certification';
+            document.getElementById('certification-index').value = index;
+            document.getElementById('cert-title').value = cert.title;
+            document.getElementById('cert-issuer').value = cert.issuer;
+            document.getElementById('cert-logo').value = cert.logo;
+            document.getElementById('cert-date').value = cert.date;
+            document.getElementById('cert-description').value = cert.description;
+            document.getElementById('cert-credential').value = cert.credentialId || '';
+            document.getElementById('cert-verification').value = cert.verificationUrl || '';
+            document.getElementById('certification-modal').classList.remove('hidden');
+        }
+
+        function deleteCertification(index) {
+            if (confirm('Are you sure you want to delete this certification?')) {
+                portfolioManager.removeCertification(index);
+                loadCertificationsTable();
+                updateStatistics();
+                showNotification('Certification deleted successfully!', 'success');
+            }
+        }
+
+        // Tool management
+        function showAddToolModal() {
+            document.getElementById('tool-modal-title').textContent = 'Add New Tool';
+            document.getElementById('tool-form').reset();
+            document.getElementById('tool-index').value = '';
+            document.getElementById('tool-modal').classList.remove('hidden');
+        }
+
+        function hideToolModal() {
+            document.getElementById('tool-modal').classList.add('hidden');
+        }
+
+        function editTool(index) {
+            const tool = portfolioManager.getTools()[index];
+            document.getElementById('tool-modal-title').textContent = 'Edit Tool';
+            document.getElementById('tool-index').value = index;
+            document.getElementById('tool-name').value = tool.name;
+            document.getElementById('tool-logo').value = tool.logo;
+            document.getElementById('tool-category').value = tool.category;
+            document.getElementById('tool-proficiency').value = tool.proficiency;
+            document.getElementById('tool-modal').classList.remove('hidden');
+        }
+
+        function deleteTool(index) {
+            if (confirm('Are you sure you want to delete this tool?')) {
+                portfolioManager.removeTool(index);
+                loadToolsTable();
+                updateStatistics();
+                showNotification('Tool deleted successfully!', 'success');
+            }
+        }
+
+        // Form submissions
+        document.getElementById('certification-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const certification = {
+                title: document.getElementById('cert-title').value,
+                issuer: document.getElementById('cert-issuer').value,
+                logo: document.getElementById('cert-logo').value,
+                date: document.getElementById('cert-date').value,
+                description: document.getElementById('cert-description').value,
+                credentialId: document.getElementById('cert-credential').value,
+                verificationUrl: document.getElementById('cert-verification').value
+            };
+            
+            const index = document.getElementById('certification-index').value;
+            
+            if (index === '') {
+                portfolioManager.addCertification(certification);
+                showNotification('Certification added successfully!', 'success');
+            } else {
+                portfolioManager.updateCertification(parseInt(index), certification);
+                showNotification('Certification updated successfully!', 'success');
+            }
+            
+            hideCertificationModal();
+            loadCertificationsTable();
+            updateStatistics();
+        });
+
+        document.getElementById('tool-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const tool = {
+                name: document.getElementById('tool-name').value,
+                logo: document.getElementById('tool-logo').value,
+                category: document.getElementById('tool-category').value,
+                proficiency: parseInt(document.getElementById('tool-proficiency').value)
+            };
+            
+            const index = document.getElementById('tool-index').value;
+            
+            if (index === '') {
+                portfolioManager.addTool(tool);
+                showNotification('Tool added successfully!', 'success');
+            } else {
+                portfolioManager.updateTool(parseInt(index), tool);
+                showNotification('Tool updated successfully!', 'success');
+            }
+            
+            hideToolModal();
+            loadToolsTable();
+            updateStatistics();
+        });
+
+        // Data management
+        function exportData() {
+            const data = portfolioManager.exportData();
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `portfolio-data-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showNotification('Data exported successfully!', 'success');
+        }
+
+        function importData() {
+            const fileInput = document.getElementById('import-file');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                showNotification('Please select a file to import.', 'error');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const success = portfolioManager.importData(e.target.result);
+                    if (success) {
+                        loadCertificationsTable();
+                        loadToolsTable();
+                        updateStatistics();
+                        showNotification('Data imported successfully!', 'success');
+                    } else {
+                        showNotification('Failed to import data. Please check the file format.', 'error');
+                    }
+                } catch (error) {
+                    showNotification('Error importing data: ' + error.message, 'error');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function resetData() {
+            if (confirm('Are you sure you want to reset all data to default? This action cannot be undone.')) {
+                localStorage.removeItem('portfolioData');
+                portfolioManager.loadFromLocalStorage();
+                loadCertificationsTable();
+                loadToolsTable();
+                updateStatistics();
+                showNotification('Data reset to default successfully!', 'success');
+            }
+        }
+
+        // Statistics
+        function updateStatistics() {
+            document.getElementById('total-certifications').textContent = portfolioManager.getCertifications().length;
+            document.getElementById('total-tools').textContent = portfolioManager.getTools().length;
+            document.getElementById('last-updated').textContent = new Date().toLocaleDateString();
+        }
+
+        // Notification function
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 text-white`;
+            
+            switch (type) {
+                case 'success':
+                    notification.style.backgroundColor = '#16a34a';
+                    break;
+                case 'error':
+                    notification.style.backgroundColor = '#dc2626';
+                    break;
+                default:
+                    notification.style.backgroundColor = '#2563eb';
+            }
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 3000);
+        }
+    </script>
+
+    <style>
+        .nav-tab {
+            padding: 1rem 1.5rem;
+            border-bottom: 2px solid transparent;
+            color: #64748b;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab:hover,
+        .nav-tab.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+
+        .admin-section {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body>
+</html>

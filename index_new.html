@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Singh Yaduvanshi - Full Stack Developer & AI Specialist</title>
+    
+    <!-- External Stylesheets -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e293b',
+                        accent: '#f97316'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="navbar fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-14 md:h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="navbar-brand">Lucky<span class="text-accent">.</span></a>
+                </div>
+                <div class="hidden md:flex items-center">
+                    <ul class="navbar-nav">
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#services" class="nav-link">Services</a></li>
+                        <li><a href="#tools" class="nav-link">Tools</a></li>
+                        <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#journey" class="nav-link">Journey</a></li>
+                        <li><a href="#packages" class="nav-link">Packages</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="menuBtn" class="mobile-menu-toggle text-gray-500 hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="mobile-menu-item">Home</a>
+                <a href="#services" class="mobile-menu-item">Services</a>
+                <a href="#tools" class="mobile-menu-item">Tools</a>
+                <a href="#certifications" class="mobile-menu-item">Certifications</a>
+                <a href="#about" class="mobile-menu-item">About</a>
+                <a href="#journey" class="mobile-menu-item">Journey</a>
+                <a href="#packages" class="mobile-menu-item">Packages</a>
+                <a href="#contact" class="mobile-menu-item">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero pt-16 pb-12 md:pt-32 md:pb-24">
+        <div class="container">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="hero-title">
+                        Hello There!<br>
+                        <span class="text-primary" id="typingText">Full Stack Developer</span> &<br>
+                        <span class="text-accent">AI Specialist</span>
+                    </h1>
+                    <div class="h-1 w-20 bg-gradient-to-r from-primary to-accent my-6"></div>
+                    <p class="hero-subtitle">
+                        Experienced developer with 4+ years specializing in AI integration, cloud solutions, and responsive web applications. Creating innovative solutions that bridge technology and business needs.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                        <a href="https://wa.me/919667907515" class="btn btn-success">
+                            <i class="fab fa-whatsapp mr-2"></i> WhatsApp Me
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center mt-8 md:mt-0">
+                    <div class="relative">
+                        <img src="https://lucky.uorstudent.me/assets/img/profile.png" alt="Lucky Singh Yaduvanshi" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 md:border-8 border-white shadow-xl floating">
+                        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-6 py-2 rounded-full shadow-lg">
+                            <span class="text-primary font-medium">Available for Freelance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+                <div class="title-underline"></div>
+                <p>I offer a range of services to help businesses grow and succeed in the digital world</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="service-card">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">UI/UX Design</h3>
+                    <p class="text-gray-600 mb-6">Creating intuitive, engaging, and accessible user interfaces that enhance user experience across platforms.</p>
+                    <a href="#" class="text-primary font-medium flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Application Design</h3>
+                    <p class="text-gray-600 mb-6">Developing responsive mobile and web applications with modern technologies and intuitive interfaces.</p>
+                    <a href="#" class="text-primary font-medium flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Website Design</h3>
+                    <p class="text-gray-600 mb-6">Building beautiful, responsive, and high-performance websites that deliver exceptional user experiences.</p>
+                    <a href="#" class="text-primary font-medium flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-gray-50 rounded-lg p-6 text-center">
+                    <i class="fas fa-mobile-alt text-3xl text-primary mb-4"></i>
+                    <h4 class="font-bold">App Design</h4>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-6 text-center">
+                    <i class="fas fa-globe text-3xl text-primary mb-4"></i>
+                    <h4 class="font-bold">Website Design</h4>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-6 text-center">
+                    <i class="fas fa-chart-line text-3xl text-primary mb-4"></i>
+                    <h4 class="font-bold">Dashboard</h4>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-6 text-center">
+                    <i class="fas fa-pencil-ruler text-3xl text-primary mb-4"></i>
+                    <h4 class="font-bold">Wireframe</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="section bg-gray-50">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Favorite Tools</h2>
+                <div class="title-underline"></div>
+                <p>Exploring the Tools Behind My Designs</p>
+            </div>
+            
+            <div id="toolsContainer" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+                <!-- Tools will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications & Achievements</h2>
+                <div class="title-underline"></div>
+                <p>Professional certifications and continuous learning journey</p>
+            </div>
+            
+            <div id="certificationsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Certifications will be dynamically loaded here -->
+            </div>
+            
+            <!-- Add New Certification Button (for easy management) -->
+            <div class="text-center mt-12">
+                <button onclick="showAddCertificationForm()" class="btn btn-primary">
+                    <i class="fas fa-plus mr-2"></i> Add New Certification
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-gray-50">
+        <div class="container">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-2/5 mb-10 md:mb-0">
+                    <img src="https://lucky.uorstudent.me/assets/img/profile.png" alt="Lucky Singh Yaduvanshi" class="w-full max-w-md rounded-2xl shadow-xl">
+                </div>
+                <div class="md:w-3/5 md:pl-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
+                    <div class="h-1 w-20 bg-gradient-to-r from-primary to-accent mb-8"></div>
+                    <h3 class="text-xl font-semibold mb-4">I'm a Professional Full Stack Developer</h3>
+                    <p class="text-gray-600 mb-8">
+                        I am a versatile designer and developer with a passion for creating beautiful, functional, and user-centered digital experiences. With 3+ years of experience in the field, I specialize in crafting responsive web applications using modern frameworks and tools. My approach combines technical expertise with a keen eye for design to deliver solutions that not only work flawlessly but also engage users effectively.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">3+</div>
+                            <div class="text-gray-600">Years of Experience</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">50+</div>
+                            <div class="text-gray-600">Projects Completed</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">30+</div>
+                            <div class="text-gray-600">Happy Clients</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">5+</div>
+                            <div class="text-gray-600">Awards Won</div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://lucky.uorstudent.me/resume.pdf" class="btn btn-primary">
+                        <i class="fas fa-download mr-2"></i> Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Work Section -->
+    <section id="journey" class="section bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education & Work</h2>
+                <div class="title-underline"></div>
+                <p>My Academic and Professional Journey</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- Timeline Item -->
+                <div class="timeline-item">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="text-primary font-bold mb-2">2025</div>
+                        <h3 class="text-xl font-bold mb-2">BCA</h3>
+                        <p class="text-gray-600 mb-2">University of Commerce College, Jaipur</p>
+                        <p class="font-medium">7.62 CGPA</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item -->
+                <div class="timeline-item">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="text-primary font-bold mb-2">2022</div>
+                        <h3 class="text-xl font-bold mb-2">Class XII (Rajasthan Board)</h3>
+                        <p class="text-gray-600 mb-2">Govt. School, Raja Park, Jaipur</p>
+                        <p class="font-medium">83.80%</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item -->
+                <div class="timeline-item">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="text-primary font-bold mb-2">2022 - Present</div>
+                        <h3 class="text-xl font-bold mb-2">Freelance Developer</h3>
+                        <p class="text-gray-600">Web Development & Design</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item -->
+                <div class="timeline-item">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="text-primary font-bold mb-2">2020 - 2022</div>
+                        <h3 class="text-xl font-bold mb-2">WordPress Developer</h3>
+                        <p class="text-gray-600">Digital Marketing Agency</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item -->
+                <div class="timeline-item">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="text-primary font-bold mb-2">2018 - 2020</div>
+                        <h3 class="text-xl font-bold mb-2">Junior Web Developer</h3>
+                        <p class="text-gray-600">Tech Solutions Ltd.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section bg-gray-50">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Expertise</h2>
+                <div class="title-underline"></div>
+                <p>Professional Skills</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Skills Column -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-code text-primary mr-3"></i> Programming Languages
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge skill-programming">Python</span>
+                        <span class="skill-badge skill-programming">C++</span>
+                        <span class="skill-badge skill-programming">C</span>
+                        <span class="skill-badge skill-programming">C#</span>
+                        <span class="skill-badge skill-programming">Java</span>
+                        <span class="skill-badge skill-programming">JavaScript</span>
+                        <span class="skill-badge skill-programming">PHP</span>
+                        <span class="skill-badge skill-programming">SQL</span>
+                    </div>
+                </div>
+                
+                <!-- Skills Column -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-globe text-primary mr-3"></i> Web Development
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge skill-web">HTML</span>
+                        <span class="skill-badge skill-web">CSS</span>
+                        <span class="skill-badge skill-web">Bootstrap</span>
+                        <span class="skill-badge skill-web">WordPress</span>
+                        <span class="skill-badge skill-web">Shopify</span>
+                    </div>
+                </div>
+                
+                <!-- Skills Column -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-brain text-primary mr-3"></i> AI & Data Analysis
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge skill-ai">NumPy</span>
+                        <span class="skill-badge skill-ai">Pandas</span>
+                        <span class="skill-badge skill-ai">Matplotlib</span>
+                        <span class="skill-badge skill-ai">Seaborn</span>
+                        <span class="skill-badge skill-ai">MySQL</span>
+                        <span class="skill-badge skill-ai">MongoDB</span>
+                        <span class="skill-badge skill-ai">Power BI</span>
+                    </div>
+                </div>
+                
+                <!-- Skills Column -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-chart-line text-primary mr-3"></i> Digital Marketing & Tools
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge skill-marketing">SEO</span>
+                        <span class="skill-badge skill-marketing">Facebook Ads</span>
+                        <span class="skill-badge skill-marketing">Content Writing</span>
+                        <span class="skill-badge skill-marketing">Blogging</span>
+                        <span class="skill-badge skill-marketing">Git & GitHub</span>
+                        <span class="skill-badge skill-marketing">Microsoft Azure</span>
+                        <span class="skill-badge skill-marketing">AI Tools (ChatGPT, Claude)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="section bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>Web Development Packages</h2>
+                <div class="title-underline"></div>
+                <p>Professional Web Development Solutions</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Package Card -->
+                <div class="package-card">
+                    <h3 class="text-2xl font-bold mb-4">Basic Website</h3>
+                    <div class="text-3xl font-bold text-primary mb-6">₹5,000</div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Up to 5 Pages</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Responsive Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Contact Form</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Basic SEO Setup</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Domain & Hosting (1 year)*</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 rounded-lg font-medium transition">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Package Card -->
+                <div class="package-card border-2 border-primary relative">
+                    <div class="absolute top-0 right-0 bg-primary text-white px-4 py-1 rounded-bl-lg">
+                        Most Popular
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Standard Website</h3>
+                    <div class="text-3xl font-bold text-primary mb-6">₹15,000</div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Up to 10 Pages</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Advanced Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Content Management System</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Social Media Integration</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Analytics Setup</span>
+                        </li>
+                    </ul>
+                    <button class="w-full btn btn-primary">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Package Card -->
+                <div class="package-card">
+                    <h3 class="text-2xl font-bold mb-4">Premium Website</h3>
+                    <div class="text-3xl font-bold text-primary mb-6">₹30,000</div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Unlimited Pages</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Custom Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>E-commerce Integration</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Advanced SEO</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Maintenance (6 months)</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 rounded-lg font-medium transition">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-gray-50">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <div class="title-underline"></div>
+                <p>Ready to start your next project? Let's work together!</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-primary text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold mb-1">Address</h4>
+                                    <p class="text-gray-600">Jaipur, Rajasthan, India</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-primary text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold mb-1">Email</h4>
+                                    <p class="text-gray-600">luckyaduvanshi5@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone text-primary text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold mb-1">Phone</h4>
+                                    <p class="text-gray-600">+91-9667907515</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Name</label>
+                                <input type="text" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Subject</label>
+                                <input type="text" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Message</label>
+                                <textarea rows="5" name="message" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                            </div>
+                            <button type="submit" class="w-full btn btn-primary">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <a href="#" class="footer-brand">Lucky<span class="text-accent">.</span></a>
+                    <p class="footer-description">Full Stack Developer & AI Specialist creating innovative digital solutions.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#journey">Journey</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">App Development</a></li>
+                        <li><a href="#">AI Solutions</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mr-3 mt-1"></i>
+                            <span>Jaipur, India</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-primary mr-3 mt-1"></i>
+                            <span>luckyaduvanshi5@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-primary mr-3 mt-1"></i>
+                            <span>+91-9667907515</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 Lucky Singh Yaduvanshi. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Add Certification Modal -->
+    <div id="addCertificationModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl p-8 max-w-md w-full">
+                <h3 class="text-2xl font-bold mb-6">Add New Certification</h3>
+                <form id="addCertificationForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Title</label>
+                        <input type="text" name="title" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Issuer</label>
+                        <input type="text" name="issuer" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Logo File Name</label>
+                        <input type="text" name="logo" required placeholder="e.g., microsoft.png" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Date</label>
+                        <input type="text" name="date" required placeholder="e.g., 2024" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Description</label>
+                        <textarea name="description" required rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                    </div>
+                    <div class="flex space-x-4">
+                        <button type="submit" class="flex-1 btn btn-primary">Add Certification</button>
+                        <button type="button" onclick="hideAddCertificationForm()" class="flex-1 btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/portfolio-config.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Additional JavaScript for Certification Management -->
+    <script>
+        // Initialize the portfolio when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTools();
+            renderCertifications();
+        });
+        
+        function showAddCertificationForm() {
+            document.getElementById('addCertificationModal').classList.remove('hidden');
+        }
+        
+        function hideAddCertificationForm() {
+            document.getElementById('addCertificationModal').classList.add('hidden');
+            document.getElementById('addCertificationForm').reset();
+        }
+        
+        // Handle new certification form submission
+        document.getElementById('addCertificationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const newCertification = {
+                title: formData.get('title'),
+                issuer: formData.get('issuer'),
+                logo: formData.get('logo'),
+                date: formData.get('date'),
+                description: formData.get('description')
+            };
+            
+            addCertification(newCertification);
+            hideAddCertificationForm();
+            showNotification('Certification added successfully!', 'success');
+        });
+    </script>
+</body>
+</html>

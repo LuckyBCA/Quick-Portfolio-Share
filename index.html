@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Singh Yaduvanshi - Product Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e293b',
+                        accent: '#f97316'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            transition: width 0.8s ease-in-out;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: #2563eb;
+            z-index: 2;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: #cbd5e1;
+            z-index: 1;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .package-card:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            background-color: #f1f5f9;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-14 md:h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-xl font-bold text-primary">Lucky<span class="text-accent">.</span></a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-500 hover:text-primary transition">Home</a>
+                    <a href="#services" class="text-gray-500 hover:text-primary transition">Services</a>
+                    <a href="#tools" class="text-gray-500 hover:text-primary transition">Tools</a>
+                    <a href="#about" class="text-gray-500 hover:text-primary transition">About</a>
+                    <a href="#journey" class="text-gray-500 hover:text-primary transition">Journey</a>
+                    <a href="#packages" class="text-gray-500 hover:text-primary transition">Packages</a>
+                    <a href="#contact" class="text-gray-500 hover:text-primary transition">Contact</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="menuBtn" class="text-gray-500 hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Home</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Services</a>
+                <a href="#tools" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Tools</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">About</a>
+                <a href="#journey" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Journey</a>
+                <a href="#packages" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Packages</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-16 pb-12 md:pt-32 md:pb-24 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                        Hello There!<br>
+                        <span class="text-primary">Full Stack Developer</span> &<br>
+                        <span class="text-accent">AI Specialist</span>
+                    </h1>
+                    <div class="h-1 w-20 bg-gradient-to-r from-primary to-accent my-6"></div>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                        Experienced developer with 4+ years specializing in AI integration, cloud solutions, and responsive web applications. Creating innovative solutions that bridge technology and business needs.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                        <a href="https://wa.me/919667907515" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 sm:px-6 sm:py-3 rounded-full font-medium flex items-center justify-center transition">
+                            <i class="fab fa-whatsapp mr-2"></i> WhatsApp Me
+                        </a>
+                        <a href="#contact" class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-5 py-2 sm:px-6 sm:py-3 rounded-full font-medium flex items-center justify-center transition">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center mt-8 md:mt-0">
+                    <div class="relative">
+                        <img src="https://lucky.uorstudent.me/assets/img/profile.png" alt="Lucky Singh Yaduvanshi" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 md:border-8 border-white shadow-xl floating">
+                        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-6 py-2 rounded-full shadow-lg">
+                            <span class="text-primary font-medium">Available for Freelance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-12 md:py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My Services</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-primary to-accent mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">I offer a range of services to help businesses grow and succeed in the digital world</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="service-card bg-gray-50 rounded-xl p-6 md:p-8 transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">UI/UX Design</h3>
+                    <p class="text-gray-600 mb-6">Creating intuitive, engaging, and accessible user interfaces that enhance user experience across platforms.</p>
+                    <a href="#" class="text-primary font-medium flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card bg-gray-50 rounded-xl p-8 transition-all duration-300">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Application Design</h3>
+                    <p class="text-gray-600 mb-6">Developing responsive mobile and web applications with modern technologies and intuitive interfaces.</p>
+                    <a href="#" class="text-primary font-medium flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card bg-gray-50 rounded-xl p-8 transition-all duration-300">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Website Design</h3>
+                    <p class="text-gray-600 mb-6">Building beautiful, responsive, and high-performance websites that deliver exceptional user experiences.</p>
+                    <a href="#" class="text-primary font-medium flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-gray-50 rounded-lg p-6 text-center">
+                    <i class="fas fa-mobile-alt text-3xl text-primary mb-4"></i>
+                    <h4 class="font-bold">App Design</h4>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-6 text-center">
+                    <i class="fas fa-globe text-3xl text-primary mb-4"></i>
+                    <h4 class="font-bold">Website Design</h4>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-6 text-center">
+                    <i class="fas fa-chart-line text-3xl text-primary mb-4"></i>
+                    <h4 class="font-bold">Dashboard</h4>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-6 text-center">
+                    <i class="fas fa-pencil-ruler text-3xl text-primary mb-4"></i>
+                    <h4 class="font-bold">Wireframe</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="py-12 md:py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My Favorite Tools</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-primary to-accent mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Exploring the Tools Behind My Designs</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+                <!-- Tool Item -->
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://lucky.uorstudent.me/assets/img/logos/vscode.png" alt="VS Code" class="w-12 h-12 mr-4">
+                        <h3 class="font-bold">VS Code</h3>
+                    </div>
+                    <div class="progress-bar bg-gray-200 rounded-full">
+                        <div class="progress-fill bg-primary rounded-full" style="width: 95%"></div>
+                    </div>
+                    <div class="mt-2 text-right text-sm font-medium">95%</div>
+                </div>
+                
+                <!-- Repeat for other tools -->
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://lucky.uorstudent.me/assets/img/logos/github.png" alt="GitHub" class="w-12 h-12 mr-4">
+                        <h3 class="font-bold">GitHub</h3>
+                    </div>
+                    <div class="progress-bar bg-gray-200 rounded-full">
+                        <div class="progress-fill bg-primary rounded-full" style="width: 98%"></div>
+                    </div>
+                    <div class="mt-2 text-right text-sm font-medium">98%</div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://lucky.uorstudent.me/assets/img/logos/cursor.png" alt="Cursor" class="w-12 h-12 mr-4">
+                        <h3 class="font-bold">Cursor</h3>
+                    </div>
+                    <div class="progress-bar bg-gray-200 rounded-full">
+                        <div class="progress-fill bg-primary rounded-full" style="width: 90%"></div>
+                    </div>
+                    <div class="mt-2 text-right text-sm font-medium">90%</div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://lucky.uorstudent.me/assets/img/logos/powerbi.png" alt="PowerBI" class="w-12 h-12 mr-4">
+                        <h3 class="font-bold">PowerBI</h3>
+                    </div>
+                    <div class="progress-bar bg-gray-200 rounded-full">
+                        <div class="progress-fill bg-primary rounded-full" style="width: 85%"></div>
+                    </div>
+                    <div class="mt-2 text-right text-sm font-medium">85%</div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://lucky.uorstudent.me/assets/img/logos/chatgpt.png" alt="ChatGPT" class="w-12 h-12 mr-4">
+                        <h3 class="font-bold">ChatGPT</h3>
+                    </div>
+                    <div class="progress-bar bg-gray-200 rounded-full">
+                        <div class="progress-fill bg-primary rounded-full" style="width: 90%"></div>
+                    </div>
+                    <div class="mt-2 text-right text-sm font-medium">90%</div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://lucky.uorstudent.me/assets/img/logos/github-copilot.png" alt="GitHub Copilot" class="w-12 h-12 mr-4">
+                        <h3 class="font-bold">GitHub Copilot</h3>
+                    </div>
+                    <div class="progress-bar bg-gray-200 rounded-full">
+                        <div class="progress-fill bg-primary rounded-full" style="width: 95%"></div>
+                    </div>
+                    <div class="mt-2 text-right text-sm font-medium">95%</div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://lucky.uorstudent.me/assets/img/logos/azure.png" alt="Azure" class="w-12 h-12 mr-4">
+                        <h3 class="font-bold">Azure</h3>
+                    </div>
+                    <div class="progress-bar bg-gray-200 rounded-full">
+                        <div class="progress-fill bg-primary rounded-full" style="width: 85%"></div>
+                    </div>
+                    <div class="mt-2 text-right text-sm font-medium">85%</div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://lucky.uorstudent.me/assets/img/logos/google.png" alt="Google" class="w-12 h-12 mr-4">
+                        <h3 class="font-bold">Google</h3>
+                    </div>
+                    <div class="progress-bar bg-gray-200 rounded-full">
+                        <div class="progress-fill bg-primary rounded-full" style="width: 95%"></div>
+                    </div>
+                    <div class="mt-2 text-right text-sm font-medium">95%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-2/5 mb-10 md:mb-0">
+                    <img src="https://lucky.uorstudent.me/assets/img/profile.png" alt="Lucky Singh Yaduvanshi" class="w-full max-w-md rounded-2xl shadow-xl">
+                </div>
+                <div class="md:w-3/5 md:pl-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
+                    <div class="h-1 w-20 bg-gradient-to-r from-primary to-accent mb-8"></div>
+                    <h3 class="text-xl font-semibold mb-4">I'm a Professional Full Stack Developer</h3>
+                    <p class="text-gray-600 mb-8">
+                        I am a versatile designer and developer with a passion for creating beautiful, functional, and user-centered digital experiences. With 3+ years of experience in the field, I specialize in crafting responsive web applications using modern frameworks and tools. My approach combines technical expertise with a keen eye for design to deliver solutions that not only work flawlessly but also engage users effectively.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">3+</div>
+                            <div class="text-gray-600">Years of Experience</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">50+</div>
+                            <div class="text-gray-600">Projects Completed</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">30+</div>
+                            <div class="text-gray-600">Happy Clients</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">5+</div>
+                            <div class="text-gray-600">Awards Won</div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://lucky.uorstudent.me/resume.pdf" class="inline-block bg-primary hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition">
+                        <i class="fas fa-download mr-2"></i> Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Work Section -->
+    <section id="journey" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Education & Work</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-primary to-accent mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">My Academic and Professional Journey</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- Timeline Item -->
+                <div class="timeline-item mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="text-primary font-bold mb-2">2025</div>
+                        <h3 class="text-xl font-bold mb-2">BCA</h3>
+                        <p class="text-gray-600 mb-2">University of Commerce College, Jaipur</p>
+                        <p class="font-medium">7.62 CGPA</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item -->
+                <div class="timeline-item mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="text-primary font-bold mb-2">2022</div>
+                        <h3 class="text-xl font-bold mb-2">Class XII (Rajasthan Board)</h3>
+                        <p class="text-gray-600 mb-2">Govt. School, Raja Park, Jaipur</p>
+                        <p class="font-medium">83.80%</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item -->
+                <div class="timeline-item mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="text-primary font-bold mb-2">2022 - Present</div>
+                        <h3 class="text-xl font-bold mb-2">Freelance Developer</h3>
+                        <p class="text-gray-600">Web Development & Design</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item -->
+                <div class="timeline-item mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="text-primary font-bold mb-2">2020 - 2022</div>
+                        <h3 class="text-xl font-bold mb-2">WordPress Developer</h3>
+                        <p class="text-gray-600">Digital Marketing Agency</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item -->
+                <div class="timeline-item">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="text-primary font-bold mb-2">2018 - 2020</div>
+                        <h3 class="text-xl font-bold mb-2">Junior Web Developer</h3>
+                        <p class="text-gray-600">Tech Solutions Ltd.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My Expertise</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-primary to-accent mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Professional Skills</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Skills Column -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-code text-primary mr-3"></i> Programming Languages
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Python</span>
+                        <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">C++</span>
+                        <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">C</span>
+                        <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">C#</span>
+                        <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Java</span>
+                        <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">JavaScript</span>
+                        <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">PHP</span>
+                        <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">SQL</span>
+                    </div>
+                </div>
+                
+                <!-- Skills Column -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-globe text-primary mr-3"></i> Web Development
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge bg-green-100 text-green-800 px-4 py-2 rounded-full">HTML</span>
+                        <span class="skill-badge bg-green-100 text-green-800 px-4 py-2 rounded-full">CSS</span>
+                        <span class="skill-badge bg-green-100 text-green-800 px-4 py-2 rounded-full">Bootstrap</span>
+                        <span class="skill-badge bg-green-100 text-green-800 px-4 py-2 rounded-full">WordPress</span>
+                        <span class="skill-badge bg-green-100 text-green-800 px-4 py-2 rounded-full">Shopify</span>
+                    </div>
+                </div>
+                
+                <!-- Skills Column -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-brain text-primary mr-3"></i> AI & Data Analysis
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge bg-purple-100 text-purple-800 px-4 py-2 rounded-full">NumPy</span>
+                        <span class="skill-badge bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Pandas</span>
+                        <span class="skill-badge bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Matplotlib</span>
+                        <span class="skill-badge bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Seaborn</span>
+                        <span class="skill-badge bg-purple-100 text-purple-800 px-4 py-2 rounded-full">MySQL</span>
+                        <span class="skill-badge bg-purple-100 text-purple-800 px-4 py-2 rounded-full">MongoDB</span>
+                        <span class="skill-badge bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Power BI</span>
+                    </div>
+                </div>
+                
+                <!-- Skills Column -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-chart-line text-primary mr-3"></i> Digital Marketing & Tools
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">SEO</span>
+                        <span class="skill-badge bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Facebook Ads</span>
+                        <span class="skill-badge bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Content Writing</span>
+                        <span class="skill-badge bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Blogging</span>
+                        <span class="skill-badge bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Git & GitHub</span>
+                        <span class="skill-badge bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Microsoft Azure</span>
+                        <span class="skill-badge bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">AI Tools (ChatGPT, Claude)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Web Development Packages</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-primary to-accent mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Professional Web Development Solutions</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Package Card -->
+                <div class="package-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
+                    <h3 class="text-2xl font-bold mb-4">Basic Website</h3>
+                    <div class="text-3xl font-bold text-primary mb-6">₹5,000</div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Up to 5 Pages</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Responsive Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Contact Form</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Basic SEO Setup</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Domain & Hosting (1 year)*</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 rounded-lg font-medium transition">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Package Card -->
+                <div class="package-card bg-white rounded-xl shadow-xl p-8 border-2 border-primary relative transition-all duration-300">
+                    <div class="absolute top-0 right-0 bg-primary text-white px-4 py-1 rounded-bl-lg">
+                        Most Popular
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Standard Website</h3>
+                    <div class="text-3xl font-bold text-primary mb-6">₹15,000</div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Up to 10 Pages</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Advanced Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Content Management System</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Social Media Integration</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Advanced SEO Setup</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Premium Domain & Hosting (1 year)*</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-primary hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Package Card -->
+                <div class="package-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
+                    <h3 class="text-2xl font-bold mb-4">Premium Dynamic Website</h3>
+                    <div class="text-3xl font-bold text-primary mb-6">₹25,000</div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Unlimited Pages</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Custom Functionality</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>E-commerce Capabilities</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Custom Database Integration</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Advanced Analytics</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Premium Domain & Hosting (1 year)*</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 rounded-lg font-medium transition">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center text-gray-600 max-w-3xl mx-auto">
+                * Domain and hosting costs are included for the first year. After the first year, renewal fees will apply: Domain (₹1,000/year) and Hosting (₹2,500/year) based on standard usage. Custom requirements may affect pricing.
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Clients Testimonials</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-primary to-accent mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">The Impact of My Work: Client Testimonials</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial Card -->
+                <div class="testimonial-card bg-gray-50 rounded-xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="text-yellow-400 text-xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="font-bold">5.0</span>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "Lucky developed our e-commerce website with exceptional attention to detail. The site is not only beautiful but also performs incredibly well. Our mobile conversion rates improved by 30% after launch, and his SEO implementation helped us rank on the first page for our target keywords."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Neha Sharma" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Neha Sharma</h4>
+                            <p class="text-gray-600">Founder, MadewithCraft.in</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Card -->
+                <div class="testimonial-card bg-gray-50 rounded-xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="text-yellow-400 text-xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="font-bold">5.0</span>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "We hired Lucky to optimize our Shopify store which was slow and underperforming. He completely transformed the user experience, improving mobile usability by 25%. His technical skills and eye for design are truly exceptional. I would recommend him to anyone looking for a developer who delivers results."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul Verma" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Rahul Verma</h4>
+                            <p class="text-gray-600">CEO, Appco Software Pvt. Ltd.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Get In Touch</h2>
+                    <div class="h-1 w-20 bg-gradient-to-r from-primary to-accent mb-8"></div>
+                    <p class="text-gray-600 mb-10">
+                        Have a project in mind or want to discuss collaboration opportunities? I'd love to hear from you!
+                    </p>
+                    
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Phone</h3>
+                                <p class="text-gray-600">+91-9667907515</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Email</h3>
+                                <p class="text-gray-600">luckyaduvanshi5@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Location</h3>
+                                <p class="text-gray-600">Jaipur, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-8 shadow-md">
+                        <h3 class="text-xl font-bold mb-6">FAQs</h3>
+                        <div class="space-y-4">
+                            <div class="faq-item bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-bold mb-2">What industries have you worked in?</h4>
+                                <p class="text-gray-600">I've worked across multiple industries including e-commerce, education technology, digital marketing, and software development.</p>
+                            </div>
+                            <div class="faq-item bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-bold mb-2">Can I see your resume/CV?</h4>
+                                <p class="text-gray-600">Certainly! You can download my resume/CV directly from my website.</p>
+                            </div>
+                            <div class="faq-item bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-bold mb-2">Are you available for freelance work?</h4>
+                                <p class="text-gray-600">Yes, I am currently available for freelance web development and design projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white rounded-xl p-8 shadow-md">
+                        <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
+                        <form>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Your Name</label>
+                                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Your Email</label>
+                                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 mb-2">Subject</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 mb-2">Message</label>
+                                <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="mt-8 bg-gradient-to-r from-primary to-accent rounded-xl p-8 text-white text-center">
+                        <h3 class="text-2xl font-bold mb-4">Ready to Start Your Project?</h3>
+                        <p class="mb-6">I'm ready to help bring your vision to life. Let's create something amazing together using the latest technologies and best practices.</p>
+                        <a href="#contact" class="inline-block bg-white text-primary px-8 py-3 rounded-full font-bold transition hover:bg-gray-100">
+                            Get Started Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <a href="#" class="text-3xl font-bold flex items-center mb-4">Lucky<span class="text-accent">.</span></a>
+                    <p class="text-gray-400 mb-6">Full Stack Developer & AI Specialist creating innovative digital solutions.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-primary rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-primary rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-primary rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-primary rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="#journey" class="text-gray-400 hover:text-white transition">Journey</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">UI/UX Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Web Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">App Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">AI Solutions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Contact Info</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mr-3 mt-1"></i>
+                            <span class="text-gray-400">Jaipur, India</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-primary mr-3 mt-1"></i>
+                            <span class="text-gray-400">luckyaduvanshi5@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-primary mr-3 mt-1"></i>
+                            <span class="text-gray-400">+91-9667907515</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 Lucky Singh Yaduvanshi. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Animate progress bars when they come into view
+        const progressBars = document.querySelectorAll('.progress-fill');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.style.width;
+                    entry.target.style.width = '0';
+                    setTimeout(() => {
+                        entry.target.style.width = width;
+                    }, 300);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        progressBars.forEach(bar => {
+            observer.observe(bar);
+        });
+    </script>
+</body>
+</html>
