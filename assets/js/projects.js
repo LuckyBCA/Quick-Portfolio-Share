@@ -91,7 +91,7 @@ function createProjectCard(project) {
                     <span class="text-sm text-primary font-medium">${project.category}</span>
                     <span class="text-sm text-gray-500">${project.date}</span>
                 </div>
-                <h3 class="text-xl font-bold mb-3 hover:text-primary cursor-pointer" onclick="openProjectModal(${project.id})">${project.title}</h3>
+                <h3 class="text-xl font-bold mb-3 hover:text-primary cursor-pointer" onclick="window.location.href='project-detail.html?id=${project.id}'">${project.title}</h3>
                 <p class="text-gray-600 mb-4 line-clamp-3">${project.description}</p>
                 <div class="flex flex-wrap gap-2 mb-4">
                     ${project.technologies.slice(0, 3).map(tech => `<span class="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs">${tech}</span>`).join('')}
@@ -100,7 +100,7 @@ function createProjectCard(project) {
                 <div class="flex space-x-3">
                     ${project.liveUrl && project.liveUrl !== '#' ? `<a href="${project.liveUrl}" target="_blank" class="flex-1 btn btn-primary text-sm py-2"><i class="fas fa-external-link-alt mr-2"></i>Live Demo</a>` : ''}
                     ${project.githubUrl && project.githubUrl !== '#' ? `<a href="${project.githubUrl}" target="_blank" class="flex-1 btn btn-secondary text-sm py-2"><i class="fab fa-github mr-2"></i>GitHub</a>` : ''}
-                    <button onclick="openProjectModal(${project.id})" class="btn btn-secondary text-sm py-2 px-3"><i class="fas fa-info-circle"></i></button>
+                    <button onclick="window.location.href='project-detail.html?id=${project.id}'" class="btn btn-secondary text-sm py-2 px-3">👁️ View Details</button>
                 </div>
             </div>
         </div>
@@ -126,7 +126,7 @@ function createProjectListItem(project) {
                         <span class="text-sm text-primary font-medium">${project.category}</span>
                         <span class="text-sm text-gray-500">${project.date}</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 hover:text-primary cursor-pointer" onclick="openProjectModal(${project.id})">${project.title}</h3>
+                    <h3 class="text-2xl font-bold mb-3 hover:text-primary cursor-pointer" onclick="window.location.href='project-detail.html?id=${project.id}'">${project.title}</h3>
                     <p class="text-gray-600 mb-4">${project.description}</p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         ${project.technologies.map(tech => `<span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">${tech}</span>`).join('')}
@@ -134,7 +134,7 @@ function createProjectListItem(project) {
                     <div class="flex space-x-3">
                         ${project.liveUrl && project.liveUrl !== '#' ? `<a href="${project.liveUrl}" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt mr-2"></i>Live Demo</a>` : ''}
                         ${project.githubUrl && project.githubUrl !== '#' ? `<a href="${project.githubUrl}" target="_blank" class="btn btn-secondary"><i class="fab fa-github mr-2"></i>GitHub Repo</a>` : ''}
-                        <button onclick="openProjectModal(${project.id})" class="btn btn-secondary"><i class="fas fa-info-circle mr-2"></i>Details</button>
+                        <button onclick="window.location.href='project-detail.html?id=${project.id}'" class="btn btn-secondary">👁️ View Details</button>
                     </div>
                 </div>
             </div>
