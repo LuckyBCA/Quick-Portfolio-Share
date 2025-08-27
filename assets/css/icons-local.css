@@ -1,0 +1,80 @@
+/* Local icon fallbacks for Font Awesome icons */
+
+/* Base icon styling */
+.fas, .fab {
+    font-family: inherit;
+    font-weight: 900;
+    text-rendering: auto;
+    line-height: 1;
+}
+
+/* Icon replacements using Unicode symbols and text */
+.fa-external-link-alt:before { content: "🔗"; }
+.fa-github:before { content: "⚡"; }
+.fa-info-circle:before { content: "ℹ️"; }
+.fa-eye:before { content: "👁️"; }
+.fa-download:before { content: "⬇️"; }
+.fa-certificate:before { content: "🏆"; }
+.fa-tools:before { content: "🔧"; }
+.fa-cog:before { content: "⚙️"; }
+.fa-star:before { content: "⭐"; }
+.fa-check-circle:before { content: "✅"; }
+.fa-bars:before { content: "☰"; }
+.fa-times:before { content: "✖️"; }
+.fa-linkedin:before { content: "💼"; }
+.fa-youtube:before { content: "📺"; }
+.fa-palette:before { content: "🎨"; }
+.fa-mobile-alt:before { content: "📱"; }
+.fa-laptop-code:before { content: "💻"; }
+
+/* Menu button styling for mobile */
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-btn:before {
+    content: "☰";
+    color: var(--primary-color, #2563eb);
+}
+
+/* Close button */
+.close-btn:before {
+    content: "✖";
+    color: #666;
+}
+
+/* Button with icon spacing */
+.btn-with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Status badges with emoji */
+.status-completed:before { content: "✅"; }
+.status-in-development:before { content: "🚧"; }
+.status-planned:before { content: "📋"; }
+
+/* Social media icons */
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--primary-color, #2563eb);
+    color: white;
+    text-decoration: none;
+    margin: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}

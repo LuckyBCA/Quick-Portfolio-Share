@@ -170,8 +170,8 @@ function filterProjects(filter) {
     loadProjects();
 }
 
-// Sort projects
-function sortProjects() {
+// Sort projects (called by UI)
+function onSortChange() {
     const sortSelect = document.getElementById('sortSelect');
     currentSort = sortSelect.value;
     currentPage = 1;
