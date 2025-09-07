@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Project Details - Lucky Singh Yaduvanshi</title>
+    
+    <!-- Local Stylesheets -->
+    <link rel="stylesheet" href="assets/css/tailwind-local.css">
+    <link rel="stylesheet" href="assets/css/icons-local.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Web Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    </style>
+</head>
+<body class="font-poppins bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="navbar fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-14 md:h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index_new.html" class="navbar-brand">Lucky<span class="text-accent">.</span></a>
+                </div>
+                <div class="hidden md:flex items-center">
+                    <ul class="navbar-nav">
+                        <li><a href="index_new.html#home" class="nav-link">Home</a></li>
+                        <li><a href="index_new.html#services" class="nav-link">Services</a></li>
+                        <li><a href="index_new.html#tools" class="nav-link">Tools</a></li>
+                        <li><a href="index_new.html#certifications" class="nav-link">Certifications</a></li>
+                        <li><a href="projects.html" class="nav-link">Projects</a></li>
+                        <li><a href="index_new.html#about" class="nav-link">About</a></li>
+                        <li><a href="index_new.html#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="menuBtn" class="menu-btn mobile-menu-toggle text-gray-500 hover:text-primary">
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index_new.html#home" class="mobile-menu-item">Home</a>
+                <a href="index_new.html#services" class="mobile-menu-item">Services</a>
+                <a href="index_new.html#tools" class="mobile-menu-item">Tools</a>
+                <a href="index_new.html#certifications" class="mobile-menu-item">Certifications</a>
+                <a href="projects.html" class="mobile-menu-item">Projects</a>
+                <a href="index_new.html#about" class="mobile-menu-item">About</a>
+                <a href="index_new.html#contact" class="mobile-menu-item">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back to Projects Button -->
+    <div class="pt-20 pb-4">
+        <div class="container">
+            <a href="projects.html" class="inline-flex items-center text-primary hover:text-blue-700 font-medium">
+                <span class="mr-2">←</span> Back to Projects
+            </a>
+        </div>
+    </div>
+
+    <!-- Project Hero Section -->
+    <section class="py-8">
+        <div class="container">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Project Info -->
+                <div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <span id="projectCategory" class="px-3 py-1 bg-primary text-white rounded-full text-sm font-medium">Loading...</span>
+                        <span id="projectStatus" class="px-3 py-1 bg-green-500 text-white rounded-full text-sm font-medium">Loading...</span>
+                        <span id="projectDate" class="text-gray-500">Loading...</span>
+                    </div>
+                    
+                    <h1 id="projectTitle" class="text-4xl font-bold mb-6 leading-tight">Loading Project...</h1>
+                    
+                    <div id="projectDescription" class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Loading project description...
+                    </div>
+
+                    <!-- Links -->
+                    <div id="projectLinks" class="flex flex-wrap gap-4 mb-8">
+                        <!-- Links will be populated by JavaScript -->
+                    </div>
+
+                    <!-- Technologies -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4">Technologies Used</h3>
+                        <div id="projectTechnologies" class="flex flex-wrap gap-3">
+                            <!-- Technologies will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Image -->
+                <div>
+                    <div class="relative">
+                        <img id="projectMainImage" src="" alt="" class="w-full h-80 object-cover rounded-xl shadow-lg">
+                        <div id="featuredBadge" class="hidden absolute top-4 left-4 bg-accent text-white px-4 py-2 rounded-full font-medium">
+                            ⭐ Featured Project
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Solution Section -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-2xl font-bold mb-4">🎯 Problem Statement</h2>
+                    <div id="problemStatement" class="text-gray-600 leading-relaxed">
+                        <p>This section will describe the specific problem or challenge that this project was designed to solve. It provides context for why the project was necessary and what gap it fills in the market or for the client.</p>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold mb-4">💡 Solution Approach</h2>
+                    <div id="solutionApproach" class="text-gray-600 leading-relaxed">
+                        <p>Here we explain the approach taken to solve the problem, including the methodology, framework choices, and key design decisions that were made during development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="section bg-gray-50">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-center mb-12">Project Screenshots</h2>
+            <div id="screenshotsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Screenshots will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="section bg-white">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-center mb-12">Key Features</h2>
+            <div id="keyFeatures" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Features will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Learned Section -->
+    <section class="section bg-primary text-white">
+        <div class="container">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-8">🎓 What I Learned / Key Takeaways</h2>
+                <div id="learnings" class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    <!-- Learnings will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Details Section -->
+    <section class="section bg-gray-50">
+        <div class="container">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">Technical Implementation</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-bold mb-4">🏗️ Architecture</h3>
+                        <div id="architecture" class="text-gray-600">
+                            <p>Details about the project architecture, database design, and system structure.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-bold mb-4">⚡ Performance</h3>
+                        <div id="performance" class="text-gray-600">
+                            <p>Information about performance optimizations, load times, and scalability considerations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Projects Section -->
+    <section class="section bg-white">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-center mb-12">Related Projects</h2>
+            <div id="relatedProjects" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Related projects will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section bg-gradient-to-r from-primary to-accent text-white">
+        <div class="container text-center">
+            <h2 class="text-3xl font-bold mb-4">Interested in This Project?</h2>
+            <p class="text-xl mb-8 opacity-90">Let's discuss how I can help you build something similar for your business.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="index_new.html#contact" class="btn bg-white text-primary hover:bg-gray-100">
+                    Get In Touch
+                </a>
+                <a href="https://wa.me/919667907515" class="btn border-2 border-white text-white hover:bg-white hover:text-primary">
+                    WhatsApp Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-secondary text-white">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <a href="#" class="footer-logo">Lucky<span class="text-accent">.</span></a>
+                    <p class="footer-description">Web Developer & SEO Specialist creating innovative digital solutions.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/lucky-yaduvanshi/" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/LuckyYaduvanshi5" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://youtube.com/@Lucky_Yaduvanshi_Official" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index_new.html#home">Home</a></li>
+                        <li><a href="index_new.html#services">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="index_new.html#about">About</a></li>
+                        <li><a href="index_new.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Project Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="projects.html?filter=E-commerce">E-commerce</a></li>
+                        <li><a href="projects.html?filter=AI/SAAS">AI/SAAS</a></li>
+                        <li><a href="projects.html?filter=Development Tools">Dev Tools</a></li>
+                        <li><a href="projects.html?filter=Utility Tools">Utilities</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Jaipur, India</li>
+                        <li><i class="fas fa-envelope mr-2"></i> luckyaduvanshi5@gmail.com</li>
+                        <li><i class="fas fa-phone mr-2"></i> +91-9667907515</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lucky Singh Yaduvanshi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/portfolio-config.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/project-detail.js"></script>
+</body>
+</html>
